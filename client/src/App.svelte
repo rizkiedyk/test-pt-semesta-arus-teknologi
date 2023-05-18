@@ -80,9 +80,7 @@
 
   const attachTrack = (track, participant) => {
     const v = document.getElementById("them");
-    const p = document.getElementById("participant");
     track.attach(v);
-    participant.attach(p);
   };
 </script>
 
@@ -91,6 +89,17 @@
     <div class="w-100 d-flex mt-5">
       <h1 class="mb-5 m-auto">Video Call</h1>
     </div>
+
+    <!-- <div id="video-grid"> -->
+    <Row class="w-100">
+      <Col md="6">
+        <video id="us" controls autoplay class="w-100" />
+      </Col>
+      <Col md="6">
+        <video id="them" controls autoplay class="w-100" />
+      </Col>
+    </Row>
+    <!-- </div> -->
 
     {#if !visible}
       <FormGroup floating label="Username">
@@ -103,20 +112,7 @@
       <Button on:click={join}>Join</Button>
     {/if}
 
-    <!-- <div id="video-grid"> -->
     {#if visible}
-      <Row class="w-100">
-        <Col md="6">
-          <video id="us" controls autoplay class="w-100" />
-          <p class="text-center fw-bold">You</p>
-        </Col>
-        <Col md="6">
-          <video id="them" controls autoplay class="w-100" />
-          <p class="text-center fw-bold" id="participant">-</p>
-        </Col>
-      </Row>
-      <!-- </div> -->
-
       <Row class="w-100 mt-3">
         <Col>
           <Button

@@ -17,7 +17,12 @@ const createToken = (credentials) => {
       identity: participantName,
     },
   );
-  at.addGrant({ roomJoin: true, room: roomName });
+  at.addGrant({
+    roomJoin: true,
+    room: roomName,
+    canSubscribe: true,
+    canPublish: true,
+  });
 
   return at.toJwt();
 };
